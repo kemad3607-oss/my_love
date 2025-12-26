@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahbek ya Janjonty</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-pattern"></div>
+    <div class="hearts-rain-container"></div>
+
+        <div class="content">
+        <h1 class="main-text">Bahbek ya Janjonty</h1>
+        
+        <img src="my_love.jpg" alt="صورة خاصة" class="center-image"> 
+
+    </div>
+
+
+    <script>
+        // JavaScript لتوليد مطر القلوب
+        const heartsRainContainer = document.querySelector('.hearts-rain-container');
+
+        function createHeart() {
+            const heart = document.createElement('i');
+            heart.classList.add('fas', 'fa-heart', 'falling-heart');
+            heart.style.left = Math.random() * 100 + 'vw'; // موقع عشوائي أفقي
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // مدة سقوط عشوائية
+            heart.style.opacity = Math.random() * 0.7 + 0.3; // شفافية عشوائية
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px'; // حجم عشوائي
+            heartsRainContainer.appendChild(heart);
+
+            // إزالة القلب بعد انتهاء الرسوم المتحركة لمنع تراكم العناصر
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // توليد قلب جديد كل فترة
+        setInterval(createHeart, 200); // كل 200 مللي ثانية
+    </script>
+
+</body>
+</html>
